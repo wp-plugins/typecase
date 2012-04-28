@@ -7,11 +7,13 @@ Tested up to: 3.3.2
 Stable tag: 0.3.4
 License: GPLv2
 
-Typecase is a web font management plugin developed by [UpThemes](http://upthemes.com) that allows you to embed over 500 fonts from Google Web Fonts.
+Typecase is a web font management plugin that allows you to browse, search, and embed over 500 fonts from Google Web Fonts.
 
 == Description ==
 
 Typecase makes working with web fonts on WordPress a glorious experience. With over 500 fonts from Google Web Fonts, Typecase is a unique and easy-to-use typography plugin that allows you to quickly browse, find, and select fonts to apply to your website.
+
+Developed by [UpThemes](http://upthemes.com). 
 
 == Installation ==
 
