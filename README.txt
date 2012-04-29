@@ -1,4 +1,4 @@
-=== Typecase ===
+=== Typecase Web Fonts ===
 Contributors: chriswallace,garand
 Donate link: http://upthemes.com/
 Tags: web fonts, typography, font manager
