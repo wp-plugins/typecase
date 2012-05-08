@@ -1,17 +1,19 @@
-=== Typecase ===
+=== Typecase Web Fonts ===
 Contributors: chriswallace,garand
 Donate link: http://upthemes.com/
 Tags: web fonts, typography, font manager
 Requires at least: 3.1
 Tested up to: 3.3.2
-Stable tag: 0.3.4
+Stable tag: 0.3.7
 License: GPLv2
 
-Typecase is a web font management plugin developed by [UpThemes](http://upthemes.com) that allows you to embed over 500 fonts from Google Web Fonts.
+Typecase is a web font management plugin that allows you to browse, search, and embed over 500 fonts from Google Web Fonts.
 
 == Description ==
 
 Typecase makes working with web fonts on WordPress a glorious experience. With over 500 fonts from Google Web Fonts, Typecase is a unique and easy-to-use typography plugin that allows you to quickly browse, find, and select fonts to apply to your website.
+
+Developed by [UpThemes](http://upthemes.com). 
 
 == Installation ==
 
@@ -52,6 +54,12 @@ We're currently looking into it and would love to be able to provide a much larg
 3. Take a peek at your beautiful fonts on the front-end of your website. Ahhh, so pretty.
 
 == Changelog ==
+
+= 0.3.7 =
+* Fixed font weight and character set loading
+* Added support for jQuery 1.6.1 by switching on() to live()
+* Added ability to symlink to Typecase without breaking the plugin
+* Added new class_exists() wrapper to determine if Typecase & Typecase Pro are both installed
 
 = 0.3.4 =
 * Fixed bug where fonts would eventually be hidden in Firefox on Windows.
