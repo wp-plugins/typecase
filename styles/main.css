@@ -1402,13 +1402,3 @@ table {
   margin: 20px 0 40px 16px;
   display: block;
 }
-/* line 877, ../sass/main.scss */
-.typecase_copyright #upthemes {
-  float: right;
-  height: 24px;
-  margin: 10px 15px 2px;
-  width: 106px;
-  text-indent: -9000px;
-  display: inline-block;
-  background-image: url("../images/logo_upthemes.png");
-}

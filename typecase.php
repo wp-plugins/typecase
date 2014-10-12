@@ -285,26 +285,26 @@ class Typecase {
 		if( !current_user_can('manage_options') )
 			return;
 
-		$title 							= __('Typecase','typecase');
-		$tagline 						= __('Beautiful web fonts for WordPress','typecase');
-		$collection 				= __('Your Collection','typecase');
-		$nofonts 						= __('You have no fonts in your collection!','typecase');
-		$addfonts 					= sprintf( __('Browse the "Available Fonts" below and click %s to add fonts here.','typecase'), '<span class="add"><span></span></span>' );
-		$selectors					= __('Selectors','typecase');
-		$newselector				= __('New Selector...','typecase');
-		$includedvariants 	= __('Included Variants','typecase');
+		$title 					= __('Typecase','typecase');
+		$tagline 				= __('Beautiful web fonts for WordPress','typecase');
+		$collection 			= __('Your Collection','typecase');
+		$nofonts 				= __('You have no fonts in your collection!','typecase');
+		$addfonts 				= sprintf( __('Browse the "Available Fonts" below and click %s to add fonts here.','typecase'), '<span class="add"><span></span></span>' );
+		$selectors				= __('Selectors','typecase');
+		$newselector			= __('New Selector...','typecase');
+		$includedvariants 		= __('Included Variants','typecase');
 		$charactersets		 	= __('Character Sets','typecase');
 		$availablefonts			= __('Available Fonts','typecase');
 		$noresultstitle			= __('No Results!','typecase');
-		$searchgoogle				= __('Search Google Webfonts','typecase');
+		$searchgoogle			= __('Search Google Webfonts','typecase');
 		$noresultsdesc			= __('There are no fonts with that name in the Google Font Library.','typecase');
 		$showmorefonts			= __('Load More Fonts','typecase');
-		$copyright					= sprintf( __("Copyright %s <a href=\"http://upthemes.com\">UpThemes</a>. All Rights Reserved.","typecase"), date('Y') );
-		$welcome						= __("Welcome! Here’s the rundown on using typecase.","typecase");
-		$step_1							= __("Browse or search for fonts in the \"Available Fonts\" box","typecase");
-		$step_2							= sprintf(__("Click the %s icon to add the font to \"Your Collection\"","typecase"),'<span class="add"><span></span></span>');
-		$step_3							= __("Add CSS selectors and font weights in the right column","typecase");
-		$hidehelp_btn				= __("Close &amp; Don't Show Again","typecase");
+		$copyright				= sprintf( __("Copyright %s <a href=\"http://upthemes.com\">UpThemes</a>. All Rights Reserved.","typecase"), date('Y') );
+		$welcome				= __("Welcome! Here’s the rundown on using typecase.","typecase");
+		$step_1					= __("Browse or search for fonts in the \"Available Fonts\" box","typecase");
+		$step_2					= sprintf(__("Click the %s icon to add the font to \"Your Collection\"","typecase"),'<span class="add"><span></span></span>');
+		$step_3					= __("Add CSS selectors and font weights in the right column","typecase");
+		$hidehelp_btn			= __("Close &amp; Don't Show Again","typecase");
 
 		$firsttimer = '';
 
@@ -413,7 +413,6 @@ class Typecase {
 		  <span class="arrow-down"></span>
 		  </div><!--/#available-fonts-wrap-->
 		</div><!--/#typecase-->
-		<div class="typecase_copyright">$copyright <a id="upthemes" href="http://upthemes.com">UpThemes</a></div>
 EOT;
 	}
 
