@@ -3,7 +3,7 @@
 Plugin Name: Typecase
 Plugin URI: http://upthemes.com
 Description: A plugin that makes it dead simple to add custom webfonts to your website.
-Version: 0.4
+Version: 0.3.7
 Author: UpThemes
 Author URI: http://upthemes.com
 License: GPL2
@@ -12,8 +12,6 @@ License: GPL2
 // don't call the file directly
 if ( !defined( 'ABSPATH' ) )
 	return;
-
-if( !class_exists('Typecase') ):
 
 $typecase_file = __FILE__;
 
@@ -45,7 +43,7 @@ class Typecase {
 	/**
 	 * @var $api_url		Our google web font URL
 	 */
-	protected $api_url = "http://fonts.googleapis.com/css?family=";
+	protected $api_url = "//fonts.googleapis.com/css?family=";
 
 	/**
 	 * @var $nonce_key	A security key used internally by the plugin
@@ -93,7 +91,7 @@ class Typecase {
 	/**
 	 * Initializes the Typecase() class
 	 *
-	 * Checks for an existing Typecase() instance 
+	 * Checks for an existing Typecase() instance
 	 * and if it doesn't find one, creates it.
 	 *
 	 * @uses Typecase()
@@ -108,12 +106,12 @@ class Typecase {
 
 		return $instance;
 	}
-	
+
 	/**
 	 * AJAX function for saving fonts
 	 *
 	 *
-	 * @uses Typecase::verify_nonce() 
+	 * @uses Typecase::verify_nonce()
 	 * @uses update_option()
 	 * @uses json_encode()
 	 * @uses header()
@@ -123,14 +121,14 @@ class Typecase {
 	public function ajax_save_fonts(){
 
 		$nonce_verify = $this->verify_nonce($_REQUEST['_nonce']);
-		
+
 		// get the submitted parameters
 		$fonts = $_REQUEST['json'];
 
 		$verified = $nonce_verify ? true : false;
 
 		$fonts = update_option('typecase_fonts',$fonts);
-		
+
 		$new_nonce = array( 'nonce' => wp_create_nonce($this->nonce_key) );
 
 		$response = json_encode( array( '_new_nonce' => $new_nonce, 'success' => $verified, 'fonts' => $fonts ) );
@@ -141,12 +139,12 @@ class Typecase {
 		exit;
 
 	}
-	
+
 	/**
 	 * AJAX function for retrieving fonts
 	 *
 	 *
-	 * @uses Typecase::verify_nonce() 
+	 * @uses Typecase::verify_nonce()
 	 * @uses get_option()
 	 * @uses json_encode()
 	 * @uses header()
@@ -154,7 +152,7 @@ class Typecase {
 	 *
 	 */
 	public function ajax_get_fonts(){
-		
+
 		$this->verify_nonce($_GET['_nonce']);
 
 		$fonts = get_option('typecase_fonts');
@@ -175,7 +173,7 @@ class Typecase {
 	/**
 	 * AJAX function to remove yellow instructional box
 	 *
-	 * @uses Typecase::verify_nonce() 
+	 * @uses Typecase::verify_nonce()
 	 * @uses update_option()
 	 * @uses json_encode()
 	 * @uses header()
@@ -183,7 +181,7 @@ class Typecase {
 	 *
 	 */
 	public function ajax_clear_firsttimer(){
-		
+
 		$this->verify_nonce($_GET['_nonce']);
 
 		$firsttimer_update = update_option('typecase_firsttimer','disabled');
@@ -283,10 +281,10 @@ class Typecase {
 	 *
 	 */
 	public function ui(){
-	
+
 		if( !current_user_can('manage_options') )
 			return;
-	
+
 		$title 							= __('Typecase','typecase');
 		$tagline 						= __('Beautiful web fonts for WordPress','typecase');
 		$collection 				= __('Your Collection','typecase');
@@ -329,7 +327,7 @@ class Typecase {
 
 		$classname = '';
 		$front_end_editor_ui = '';
-		$buttons = '<div class="buttons" style="margin-top:-7px;"><span>' . __("live front-end editor &amp; lifetime support","typecase") . '</span> <a class="typecase-btn primary" style="margin-right:0;" href="http://upthemes.com/plugins/typecase/" target="_blank">' . __("Upgrade to Pro","typecase") . '</a></div>';
+		$buttons = '<div class="buttons"><span>' . __("live front-end editor &amp; lifetime support","typecase") . '</span> <a class="typecase-btn primary" href="http://upthemes.com/plugins/typecase/" target="_blank">' . __("Upgrade to Pro","typecase") . '</a></div>';
 
 		$classname = apply_filters('typecase-classname',$classname);
 		$buttons = apply_filters('typecase-buttons',$buttons);
@@ -477,7 +475,7 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 
 		}
 	}
-	
+
 	protected function stringify_font_part($parts){
 
 		$parts = explode("|",$parts);
@@ -488,8 +486,8 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 			if( $i == 0 ){
 				$count = 0;
 			}
-			
-			// split font weight into pairs					
+
+			// split font weight into pairs
 			$part = explode('&',$part);
 
 			// assign
@@ -543,5 +541,3 @@ if( file_exists( dirname(TYPECASE_FILE) . '/pro.php' ) ){
 }else{
 	$typecase = Typecase::init();
 }
-
-endif;
