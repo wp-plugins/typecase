@@ -1,6 +1,6 @@
 === Typecase Web Fonts ===
 
-Contributors: chriswallace,garand,upthemes
+Contributors: chriswallace,garand,upthemes,andrew.taylor
 Donate link: http://upthemes.com/
 Tags: web fonts, typography, font manager, type, Google Web Fonts
 Requires at least: 3.1
@@ -8,15 +8,19 @@ Tested up to: 4.1
 Stable tag: 1.1
 License: GPLv2
 
-Typecase is a web font management plugin that allows you to browse, search, and embed over 500 fonts from Google Web Fonts.
+Typecase is a web font management plugin that allows you to browse, search, and embed over 650 fonts from Google Web Fonts.
 
 == Description ==
 
-Typecase makes working with web fonts in WordPress a glorious experience. With over 500 fonts from Google Web Fonts, Typecase is a unique and easy-to-use typography plugin that allows you to quickly browse, find, and select fonts to apply to your website.
+Typecase makes working with web fonts in WordPress a glorious experience. With over 650 fonts from Google Web Fonts, Typecase is a unique and easy-to-use typography plugin that allows you to quickly browse, find, and select fonts to apply to your website.
 
 Developed by [UpThemes](http://upthemes.com).
 
-One thing to be aware of is that you must have a working knowledge of CSS and CSS selectors to be able to apply fonts to your WordPress site. If you do not know anything about CSS or have the ability to use dev tools to identify HTML elements, we recommend using a theme with custom fonts already enabled.
+Typecase works out-of-the-box with all the default themes, including the brand new Twenty Fifteen. We've incorporated new controls for font selection with the Customizer, making it easy to select fonts that fit your style.
+
+== Advanced Usage ==
+
+Typecase offers the ability to apply fonts to any theme through the use of CSS. If you don't know how to find CSS selectors to target in your theme, make sure to ask the original theme author to implement theme support for Typecase. Once the theme declares support for Typecase, you will easily be able to customize the fonts in your theme without the need for using CSS selectors.
 
 == Installation ==
 
@@ -27,6 +31,17 @@ One thing to be aware of is that you must have a working knowledge of CSS and CS
 5. Follow the on-screen instructions to begin using Typecase.
 
 == Frequently Asked Questions ==
+
+= Which themes are currently supported for use with the Customizer? =
+
+* Twenty Ten
+* Twenty Eleven
+* Twenty Twelve
+* Twenty Thirteen
+* Twenty Fourteen
+* Twenty Fifteen
+
+Soon, all [UpThemes WordPress themes](https://upthemes.com/themes/) will support Typecase as well. We will continue to update this section as more theme authors add support for their themes.
 
 = What If I Don't Understand CSS selectors? =
 
