@@ -86,6 +86,11 @@ class Typecase {
 		}else{
 			add_action('wp_head',array(&$this,'display_frontend'));
 		}
+
+		add_action('after_setup_theme', array($this, 'default_theme_support'), -1 );
+
+		add_action('after_setup_theme', array($this, 'customizer_init') );
+
 	}
 
 	/**
@@ -523,6 +528,339 @@ echo "<!--==-- End Typecase Font Declarations --==-->\n\n";
 			die('Security check failed.');
 		else
 			return true;
+	}
+
+	/**
+	 * Load customizer if theme support for typcase and file exist
+	 *
+	 * @uses require_if_theme_supports
+	 *
+	 */
+	public function customizer_init(){
+		$customizer_file = dirname( TYPECASE_FILE ) . '/customizer.php';
+
+		if( file_exists( $customizer_file ) ){
+			require_if_theme_supports( 'typecase', $customizer_file );
+		}
+
+	}
+
+	/**
+	 * Detect if a default theme is used
+	 *
+	 * @uses require_if_theme_supports
+	 *
+	 * @return str, false returns theme directory name if default theme is active, otherwise return false
+	 *
+	 */
+	public function default_theme_support(){
+
+		// list default themes
+		$default_themes = array(
+			'twentyten',
+			'twentyeleven',
+			'twentytwelve',
+			'twentythirteen',
+			'twentyfourteen',
+			'twentyfifteen',
+		);
+
+		// get the active theme
+		$active_theme = wp_get_theme();
+
+		// only need the slug
+		$active_theme = $active_theme->template;
+
+		// bail if the active theme is not a default theme
+		if( !in_array( $active_theme, $default_themes ) ){
+			return;
+		}
+
+		$font_locations = array();
+
+		switch( $active_theme ):
+
+			case 'twentyten':
+
+				$font_locations = array(array(
+						'label' => 'Body Copy',
+						'selector' => 'body',
+						'default' => 'Georgia, "Bitstream Charter", serif',
+					),
+					array(
+						'label' => 'Headings (H1-H6)',
+						'selector' => 'h1, h2, h3, h4, h5, h6',
+						'default' => 'Georgia, "Bitstream Charter", serif',
+					),
+					array(
+						'label' => 'Article Title',
+						'selector' => 'h1.entry-title',
+						'default' => '"Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif',
+					),
+					array(
+						'label' => 'Block Quote',
+						'selector' => 'blockquote',
+						'default' => 'Georgia, "Bitstream Charter", serif',
+					),
+					array(
+						'label' => 'List Items (Bulleted and Numbered)',
+						'selector' => 'ul, ol',
+						'default' => 'Georgia, "Bitstream Charter", serif',
+					),
+				);
+
+				break;
+
+			case 'twentyeleven':
+
+				$font_locations = array(
+					array(
+						'label' => 'Body Copy',
+						'selector' => 'body',
+						'default' => '"Helvetica Neue", Helvetica, Arial, sans-serif',
+					),
+					array(
+						'label' => 'Headings (H1-H6)',
+						'selector' => 'h1, h2, h3, h4, h5, h6',
+						'default' => '"Helvetica Neue", Helvetica, Arial, sans-serif',
+					),
+					array(
+						'label' => 'Article Title',
+						'selector' => 'h1.entry-title',
+						'default' => '"Helvetica Neue", Helvetica, Arial, sans-serif',
+					),
+					array(
+						'label' => 'Block Quote',
+						'selector' => 'blockquote',
+						'default' => '"Helvetica Neue", Helvetica, Arial, sans-serif',
+					),
+					array(
+						'label' => 'List Items (Bulleted and Numbered)',
+						'selector' => 'ul, ol',
+						'default' => '"Helvetica Neue", Helvetica, Arial, sans-serif',
+					),
+				);
+
+				break;
+
+			case 'twentytwelve':
+
+				$font_locations = array(
+					array(
+						'label' => 'Body Copy',
+						'selector' => 'body',
+						'default' => '"Open Sans", Helvetica, Arial, sans-serif',
+					),
+					array(
+						'label' => 'Headings (H1-H6)',
+						'selector' => 'h1, h2, h3, h4, h5, h6',
+						'default' => '"Open Sans", Helvetica, Arial, sans-serif',
+					),
+					array(
+						'label' => 'Article Title',
+						'selector' => 'h1.entry-title',
+						'default' => '"Open Sans", Helvetica, Arial, sans-serif',
+					),
+					array(
+						'label' => 'Block Quote',
+						'selector' => 'blockquote',
+						'default' => '"Open Sans", Helvetica, Arial, sans-serif',
+					),
+					array(
+						'label' => 'List Items (Bulleted and Numbered)',
+						'selector' => 'ul, ol',
+						'default' => '"Open Sans", Helvetica, Arial, sans-serif',
+					),
+				);
+
+				break;
+
+			case 'twentythirteen':
+
+				$font_locations = array(
+					array(
+						'label' => 'Body Copy',
+						'selector' => 'body',
+						'default' => '"Source Sans Pro", Helvetica, sans-serif',
+					),
+					array(
+						'label' => 'Headings (H1-H6)',
+						'selector' => 'h1, h2, h3, h4, h5, h6',
+						'default' => 'Bitter, Georgia, serif',
+					),
+					array(
+						'label' => 'Article Title',
+						'selector' => 'h1.entry-title',
+						'default' => 'Bitter, Georgia, serif',
+					),
+					array(
+						'label' => 'Block Quote',
+						'selector' => 'blockquote',
+						'default' => '"Source Sans Pro", Helvetica, sans-serif',
+					),
+					array(
+						'label' => 'List Items (Bulleted and Numbered)',
+						'selector' => 'ul, ol',
+						'default' => '"Source Sans Pro", Helvetica, sans-serif',
+					),
+				);
+
+				break;
+			
+			case 'twentyfourteen':
+
+
+				$font_locations = array(
+					'simple' => array(
+						array(
+							'label' => 'Body Copy',
+							'selector' => 'body',
+							'default' => 'Lato, sans-serif',
+							'description' => 'Applies site-wide to content and sidebar',
+						),
+						array(
+							'label' => 'Headings (H1-H6)',
+							'selector' => 'h1, h2, h3, h4, h5, h6',
+							'default' => 'Lato, sans-serif',
+							'description' => 'Applies site-wide to content and sidebar',
+						),
+						array(
+							'label' => 'Article Title',
+							'selector' => 'h1.entry-title',
+							'default' => 'Lato, sans-serif',
+							'description' => 'Large heading at the top of pages and posts',
+						),
+					),
+					'advanced' => array(
+						'general' => array(
+							array(
+								'label' => 'Site Title',
+								'selector' => 'h1.site-title',
+								'default' => 'Lato, sans-serif',
+							),
+							array(
+								'label' => 'Site Description',
+								'selector' => 'h2.site-description',
+								'default' => 'Lato, sans-serif',
+							),
+						),
+						'content' => array(
+							array(
+								'label' => 'Article Title',
+								'selector' => 'h1.entry-title',
+								'default' => 'Lato, sans-serif',
+								'description' => 'Large heading at the top of pages and posts',
+							),
+							array(
+								'label' => 'Block Quote',
+								'selector' => 'blockquote',
+								'default' => 'Lato, sans-serif',
+							),
+							array(
+								'label' => 'List Items (Bulleted and Numbered)',
+								'selector' => 'ul, ol',
+								'default' => 'Lato, sans-serif',
+							),
+						),
+						'sidebar' => array(
+							array(
+								'label' => 'Widget Content',
+								'selector' => '.widget',
+								'default' => 'Lato, sans-serif',
+							),
+							array(
+								'label' => 'Widget Titles',
+								'selector' => '.widget-title',
+								'default' => 'Lato, sans-serif',
+							),
+						),
+					),
+				);
+
+				break;
+
+			case 'twentyfifteen':
+
+
+				$font_locations = array(
+					'simple' => array(
+						array(
+							'label' => 'Body Copy',
+							'selector' => 'body',
+							'default' => '"Noto Serif", serif',
+							'description' => 'Applies site-wide to content and sidebar',
+						),
+						array(
+							'label' => 'Headings (H1-H6)',
+							'selector' => 'h1, h2, h3, h4, h5, h6',
+							'default' => '"Noto Serif", serif',
+							'description' => 'Applies site-wide to content and sidebar',
+						),
+						array(
+							'label' => 'Article Title',
+							'selector' => 'h1.entry-title',
+							'default' => '"Noto Serif", serif',
+							'description' => 'Large heading at the top of pages and posts',
+						),
+					),
+					'advanced' => array(
+						'general' => array(
+							array(
+								'label' => 'Site Title',
+								'selector' => '.site-title',
+								'default' => '"Noto Serif", serif',
+							),
+							array(
+								'label' => 'Site Description',
+								'selector' => '.site-description',
+								'default' => '"Noto Serif", serif',
+							),
+						),
+						'content' => array(
+							array(
+								'label' => 'Article Title',
+								'selector' => 'h1.entry-title',
+								'default' => '"Noto Serif", serif',
+								'description' => 'Large heading at the top of pages and posts',
+							),
+							array(
+								'label' => 'Block Quote',
+								'selector' => 'blockquote',
+								'default' => '"Noto Serif", serif',
+							),
+							array(
+								'label' => 'List Items (Bulleted and Numbered)',
+								'selector' => 'ul, ol',
+								'default' => '"Noto Serif", serif',
+							),
+						),
+						'sidebar' => array(
+							array(
+								'label' => 'Widget Content',
+								'selector' => '.widget',
+								'default' => '"Noto Serif", serif',
+							),
+							array(
+								'label' => 'Widget Titles',
+								'selector' => 'h2.widget-title',
+								'default' => '"Noto Serif", serif',
+							),
+						),
+					),
+				);
+
+				break;
+
+		endswitch;
+
+		// bail if no font locations defined
+		if( empty( $font_locations ) ){
+			return;
+		}
+
+		// add theme support for typecase with defined font locations
+		add_theme_support( 'typecase', $font_locations );
+
 	}
 
 }

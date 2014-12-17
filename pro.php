@@ -22,7 +22,6 @@ class Typecase_Pro extends Typecase {
 		parent::__construct();
 
 		add_action('wp_ajax_reloadFontPreview',array(&$this,'ajax_reload_font_preview'));
-		add_action('init',array(&$this,'set_pro_filters'),1);
 
 		if( isset($_GET['front_end_editor']) && !is_admin() ){
 			remove_action('wp_head',array(&$this,'display_frontend'));
@@ -52,19 +51,6 @@ class Typecase_Pro extends Typecase {
 		}
 
 		return $instance;
-	}
-
-	/**
-	 * Set up Typecase Pro admin filters
-	 *
-	 * Sets up all the appropriate filters for Pro version
-	 * within the admin section of plugin.
-	 *
-	 * @uses add_filter()
-	 *
-	 */
-	public function set_pro_filters(){
-			add_filter('typecase-buttons',array(&$this,'buttons_replace'));
 	}
 
 	/**
@@ -181,20 +167,6 @@ class Typecase_Pro extends Typecase {
 			exit;
 
 		}
-
-	}
-
-	/**
-	 * Modifies admin header buttons and returns Typecase Pro buttons
-	 *
-	 * @return $buttons	New set of buttons
-	 *
-	 */
-	public function buttons_replace($buttons){
-
-		$buttons = '<div class="buttons"><span class="pro-badge"></span> <a class="typecase-btn primary" href="' . get_bloginfo('url') . '/?front_end_editor=1" target="_blank">' . __("Open Live Editor","typecase") . '</a> <a class="typecase-btn" href="http://upthemes.com/" target="_blank">WordPress Themes by UpThemes</a></div>';
-
-		return $buttons;
 
 	}
 
