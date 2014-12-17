@@ -5,7 +5,7 @@ Donate link: http://upthemes.com/
 Tags: web fonts, typography, font manager, type, Google Web Fonts
 Requires at least: 3.1
 Tested up to: 4.1
-Stable tag: 1.1
+Stable tag: 1.1.1
 License: GPLv2
 
 Typecase is a web font management plugin that allows you to browse, search, and embed over 650 fonts from Google Web Fonts.
@@ -68,6 +68,18 @@ The plugin fetches the latest list of fonts from Google every time you edit your
 3. Take a peek at your beautiful fonts on the front-end of your website. Ahhh, so pretty.
 
 == Changelog ==
+
+= 1.1.1 =
+* Fixed Customizer compatibility with older versions, it now works in WordPress 4.0 and 4.1
+
+= 1.1 =
+* Added ability for themes to declare theme support for Typecase for usage in custom themes in Customizer
+* Added support for quick font selection using the Customizer all WordPress default themes
+* Removed branding for Typecase Pro
+
+= 1.0 =
+* Fixed some compatibility bugs
+* Merged Typecase Pro features into free version
 
 = 0.3.4 =
 * Fixed bug where fonts would eventually be hidden in Firefox on Windows.
