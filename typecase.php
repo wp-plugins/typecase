@@ -3,7 +3,7 @@
 Plugin Name: Typecase
 Plugin URI: http://upthemes.com
 Description: A plugin that makes it dead simple to add custom webfonts to your website.
-Version: 1.0
+Version: 1.1
 Author: UpThemes
 Author URI: http://upthemes.com
 License: GPL2
