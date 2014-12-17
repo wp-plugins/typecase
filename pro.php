@@ -192,7 +192,7 @@ class Typecase_Pro extends Typecase {
 	 */
 	public function buttons_replace($buttons){
 
-		$buttons = '<div class="buttons"><span class="pro-badge"></span> <a class="typecase-btn primary" href="' . get_bloginfo('url') . '/?front_end_editor=1" target="_blank">' . __("Open Live Editor","typecase") . '</a> <a class="typecase-btn" href="http://upthemes.com/" target="_blank">WordPress Themes by UpThemes</a></div>';
+		$buttons = '<div class="buttons"><a class="typecase-btn primary" href="' . get_bloginfo('url') . '/?front_end_editor=1" target="_blank">' . __("Open Live Editor","typecase") . '</a> <a class="typecase-btn" href="http://upthemes.com/" target="_blank">WordPress Themes by UpThemes</a></div>';
 
 		return $buttons;
 
