@@ -4,8 +4,8 @@ Contributors: chriswallace,garand,upthemes,andrew.taylor
 Donate link: http://upthemes.com/
 Tags: web fonts, typography, font manager, type, Google Web Fonts
 Requires at least: 3.1
-Tested up to: 4.1
-Stable tag: 1.1.1
+Tested up to: 4.3
+Stable tag: 1.1.2
 License: GPLv2
 
 Typecase is a web font management plugin that allows you to browse, search, and embed over 650 fonts from Google Web Fonts.
